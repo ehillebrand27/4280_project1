@@ -1,12 +1,64 @@
 #include "node.h"
-#include "traversals.h"
-//#include "buildTree.h"
+//#include "traversals.h"
+#include "buildTree.h"
 #include <string>
 #include <iostream>
 #include <cstring>
 #include <cstdio>
 using namespace std;
 
+
+
+
+//print tree
+void printParseTree(node_t* rootP, int level)
+{
+    if (rootP == nullptr) return;
+
+    // indentation
+    printf("%*c", level * 4, ' ');
+
+    // level and ascii
+    printf("%d %d ", level, rootP->ascii_number);
+
+    // print linked list
+    string_list* temp = rootP->list;
+    while (temp != nullptr)
+    {
+        printf("%s ", temp->str.c_str());
+        temp = temp->next;
+    }
+
+    printf("\n");
+
+    // recursive traversal
+    printParseTree(rootP->left, level + 1);
+    printParseTree(rootP->right, level + 1);
+}
+
+
+int main()
+{
+    node_t* root = nullptr;
+
+    root = insert(root, "Z");
+    root = insert(root, "apple");
+    root = insert(root, "ant");
+    root = insert(root, "3test");
+    root = insert(root, "*star");
+    root = insert(root, "axe");
+
+    printParseTree(root, 0);
+
+    return 0;
+}
+
+
+
+
+
+
+/*
 int main(int argc, char* argv[]) {
 
 
@@ -62,3 +114,5 @@ int main(int argc, char* argv[]) {
     //postOrder(root);
     return 0;
 }
+
+*/

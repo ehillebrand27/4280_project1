@@ -20,6 +20,17 @@ struct node_t
     node_t* left;
     node_t* right;
     string_list* list;
+
+    //initialize values
+    node_t(int value)
+    {
+        ascii_number = value;
+        left = nullptr;
+        right = nullptr;
+        list = nullptr;
+    }
+
+
 };
 
 #endif

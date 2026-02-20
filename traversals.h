@@ -1,27 +1,16 @@
-#include <node.h>
 
-static void preOrder(node_t *rootP, int level)
-{
-    if (rootP == NULL) return;
-
-    printf("%*c%d:%s ",level*4,' ',level, node_t.ascii); // assume some info printed as string
-    printf("\n");
-
-    preOrder(rootP->left,level+1);
-    preOrder(rootP->right,level+1);
-}
+#ifndef TRAVERSALS.H
+#define TRAVERSALS.H
 
 
-static void postOrder(node_t *rootP, int level)
-{
-    if (rootP == NULL) return;
 
-    printf("%*c%d:%s ",level*4,' ',level, NodeId.info); // assume some info printed as string
-    printf("\n");
+#include "node.h"
 
-    preOrder(rootP->right,level+1);
-    preOrder(rootP->left,level+1);
-}
 
+void traversePreOrder(node_t* root, const char baseFilename[]);
+void traversePostOrder(node_t* root, const char baseFilename[]);
+void traverseLevelOrder(node_t* root, const char baseFilename[]);
+
+#endif
 
 
